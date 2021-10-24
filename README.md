@@ -1,7 +1,7 @@
 # Phase 2 Partner Project
 ## Minimum Viable Product Proposal
 
-### App Name: MyBook
+### App Name: Book Nook
 
 Components: App, Search, Home, AllBooks, BookShelf, BookCard, AddBookForm
 
