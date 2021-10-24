@@ -1,3 +1,18 @@
+# Phase 2 Partner Project
+## Minimum Viable Product Proposal
+
+### App Name: MyBook
+
+Components: App, Search, Home, AllBooks, BookShelf, BookCard, AddBookForm
+Client-side routes: AllBooks, Bookshelf, AddBookForm
+
+Functionality and Features
+* Uses a local db.json file with book objects to populate page on load
+* User can add a book that persists to the page
+* User can add books to their bookshelf
+         
+ ---------
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,4 +83,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# phase-2-partner-project
