@@ -7,6 +7,13 @@ import NavBar from './NavBar';
 import AddBook from './AddBook';
 import Header from './Header';
 
+const pageStyle = {
+  backgroundColor: "#f3eeda",
+  borderRadius: "20px 20px 0 0",
+  borderTop: "solid 1px",
+  boxShadow: "0 -0.5px 5px"
+}
+
 function App() {
   const [allBooks, setAllBooks] = useState([])
 
@@ -19,18 +26,20 @@ function App() {
   return (
     <div>
       <Header />
-      <NavBar />
-      <Switch>
-        <Route exact path="/">
-          <Home allBooks={allBooks}/>
-        </Route>
-        <Route exact path="/bookshelf">
-          <Bookshelf />
-        </Route>
-        <Route exact path="/addbook">
-          <AddBook />
-        </Route>
-      </Switch>
+      <div style={pageStyle}>
+        <NavBar />
+        <Switch>
+          <Route exact path="/">
+            <Home allBooks={allBooks}/>
+          </Route>
+          <Route exact path="/bookshelf">
+            <Bookshelf />
+          </Route>
+          <Route exact path="/addbook">
+            <AddBook />
+          </Route>
+        </Switch>
+      </div>
     </div>
   );
 }
