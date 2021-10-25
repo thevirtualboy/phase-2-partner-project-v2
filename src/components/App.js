@@ -15,14 +15,27 @@ const pageStyle = {
 }
 
 function App() {
+// set state
   const [allBooks, setAllBooks] = useState([])
 
+// GET data from local db.json
   useEffect(() =>{
     fetch('http://localhost:3000/books')
       .then(resp => resp.json())
       .then(data => setAllBooks(data))
   }, [])
 
+// bookshelf functionality
+  const bookshelf = allBooks.filter(book => book.bookshelf === true)
+
+  function updateShelf(clickedBook) {
+    const updatedBooks = allBooks.map(book =>
+      book.id === clickedBook.id? clickedBook : book)
+    setAllBooks(updatedBooks)
+  }
+
+
+  
   return (
     <div>
       <Header />
@@ -30,10 +43,10 @@ function App() {
         <NavBar />
         <Switch>
           <Route exact path="/">
-            <Home allBooks={allBooks}/>
+            <Home allBooks={allBooks} updateShelf={updateShelf}/>
           </Route>
           <Route exact path="/bookshelf">
-            <Bookshelf />
+            <Bookshelf bookshelf={bookshelf} updateShelf={updateShelf}/>
           </Route>
           <Route exact path="/addbook">
             <AddBook />

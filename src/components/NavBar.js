@@ -6,7 +6,7 @@ const linkStyles = {
     margin: "0 6px 6px",
     background: "#a79d51",
     textDecoration: "none",
-    webkitTextStroke: "0.1px black",
+    WebkitTextStroke: "0.1px black",
     color: "white",
     borderRadius: "0 0 10px 10px",
 }
