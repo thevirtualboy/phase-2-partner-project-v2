@@ -15,7 +15,8 @@ const cardStyle = {
     flexBasis: "20%"
 }
 
-function BookCard({handleClick, book, book:{title, author, genre, img, publishYear, description, bookshelf}}) {
+
+function BookCard({handleDelete, handleClick, book, book:{title, author, genre, img, publishYear, description, bookshelf}}) {
     const [buttonText , setButtonText] = useState(bookshelf)
 
     return (
@@ -27,7 +28,7 @@ function BookCard({handleClick, book, book:{title, author, genre, img, publishYe
             <p>Genre: {genre}</p>
             <button>Show Description</button>
             <button onClick={() => {setButtonText(!buttonText); handleClick(book)}}>{buttonText ? "Remove from Bookshelf" : "Add to Bookshelf "}</button>
-            <button>Delete from Library</button> 
+            <button onClick={() => handleDelete(book)}>Delete from Library</button> 
         </div>
     )
 }
