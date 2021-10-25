@@ -8,8 +8,8 @@ const homeStyle = {
     justifyContent: "space-around",
 }
 
-function Home({allBooks, updateShelf}) {
-    const displayBooks = allBooks.map(book => <BookCard key={book.id} book={book} updateShelf={updateShelf}/>)
+function Home({allBooks, updateShelf, handleClick}) {
+    const displayBooks = allBooks.map(book => <BookCard key={book.id} book={book} updateShelf={updateShelf} handleClick={handleClick} />)
 
     return (
         <div style={homeStyle}>

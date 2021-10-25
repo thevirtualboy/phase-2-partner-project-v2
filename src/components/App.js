@@ -74,6 +74,27 @@ function App() {
       })
     })
   }
+
+  function handleClick(book) {
+    fetch(`http://localhost:3000/books/${book.id}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            bookshelf: !book.bookshelf,
+        })
+    })
+        .then(resp => resp.json())
+        .then(data => {
+            updateShelf(data)
+            const idx = displayBooks.findIndex(item => item.id === book.id)
+            const tempBooks = [...displayBooks]
+            tempBooks[idx].bookshelf = data.bookshelf
+            setDisplayBooks(tempBooks)
+        })
+  }
+
 // bookshelf functionality
   function updateShelf(clickedBook) {
     if (clickedBook.bookshelf === true) {
@@ -92,7 +113,7 @@ function App() {
         <NavBar />
         <Switch>
           <Route exact path="/">
-            <Home allBooks={displayBooks} updateShelf={updateShelf}/>
+            <Home allBooks={displayBooks} updateShelf={updateShelf} handleClick={handleClick} />
           </Route>
           <Route exact path="/bookshelf">
             <Bookshelf bookshelf={bookshelf} updateShelf={updateShelf}/>
