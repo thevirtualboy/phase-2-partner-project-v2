@@ -18,7 +18,7 @@ const buttonStyle = {
     marginTop: "15px"
 }
 
-function AddBook({formData, handleFormChange, handleSubmit}) {
+function AddBook({formData, handleFormChange, handleSubmit, handleChecked}) {
     return (
         <>
             <h1 style={{marginLeft: "60px"}}>Form:</h1>
@@ -75,8 +75,8 @@ function AddBook({formData, handleFormChange, handleSubmit}) {
                     <input 
                         type="checkbox" 
                         name="bookshelf" 
-                        value={formData.boockshelf} 
-                        onChange={handleFormChange}
+                        checked={formData.bookshelf}
+                        onChange={handleChecked}
                     ></input>
                 </span>
                 <button type="submit" style={buttonStyle}>Submit Book</button>
