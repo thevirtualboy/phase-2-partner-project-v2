@@ -1,104 +1,114 @@
 {
-    "books": [
-      {
-        "id": 1,
-        "title": "Dune",
-        "author": "Frank Herbert",
-        "img": "https://covers.openlibrary.org/b/isbn/0425027066-M.jpg",
-        "genre": "science fiction",
-        "description": "Set on the desert planet Arrakis, Dune is the story of the boy Paul Atreides, heir to a noble family tasked with ruling an inhospitable world where the only thing of value is the \"spice\" melange, a drug capable of extending life and enhancing consciousness. Coveted across the known universe, melange is a prize worth killing for...\r\n\r\nWhen House Atreides is betrayed, the destruction of Paul's family will set the boy on a journey toward a destiny greater than he could ever have imagined. And as he evolves into the mysterious man known as Muad'Dib, he will bring to fruition humankind's most ancient and unattainable dream.\r\n\r\nA stunning blend of adventure and mysticism, environmentalism and politics, Dune won the first Nebula Award, shared the Hugo Award, and formed the basis of what is undoubtedly the grandest epic in science fiction.",
-        "publishYear": 1965,
-        "bookshelf": false
-      },
-      {
-        "id": 2,
-        "title": "A Memory Called Empire",
-        "author": "Arkady Martine",
-        "img": "https://covers.openlibrary.org/b/isbn/1250186447-M.jpg",
-        "genre": "science fiction",
-        "description": "Won the 2020 Hugo for Best Novel.\r\nAmbassador Mahit Dzmare is posted far from her mining station home, to the Empire's glorious capital. Yet when she arrives, she discovers her predecessor was murdered. But no-one will admit his death wasn't accidental - and she might be next.\r\nMahit must navigate the capital's deadly halls of power, while hunting the killer. She must also somehow stop the Empire from annexing her fiercely independent colony. As she sinks deeper into this seductive yet unfamiliar culture, Mahit engages in intrigues of her own. For she's hiding an extraordinary technological secret, one which might destroy her station and its way of life.Or it might save them all from annihilation.",
-        "publishYear": 2019,
-        "bookshelf": false
-      },
-      {
-        "id": 3,
-        "title": "Ender's Game",
-        "author": "Orson Scott Card",
-        "img": "https://covers.openlibrary.org/b/isbn/0812533550-M.jpg",
-        "genre": "science fiction",
-        "description": "Ender's Game is a 1985 military science fiction novel by American author Orson Scott Card. Set at an unspecified date in Earth's future, the novel presents an imperiled humankind after two conflicts with the Formics, an insectoid alien species they dub the \"buggers\". In preparation for an anticipated third invasion, children, including the novel's protagonist, Andrew \"Ender\" Wiggin, are trained from a very young age by putting them through increasingly difficult games, including some in zero gravity, where Ender's tactical genius is revealed. The book originated as a short story of the same name, published in the August 1977 issue of Analog Science Fiction and Fact. The novel was published on January 15, 1985. Later, by elaborating on characters and plotlines depicted in the novel, Card was able to write additional books in the Ender's Game series. Card also released an updated version of Ender's Game in 1991, changing some political facts to reflect the times more accurately (e.g., to include the recent collapse of the Soviet Union and the end of the Cold War). The novel has been translated into 34 languages. Reception of the book has been mostly positive. It has become suggested reading for many military organizations, including the United States Marine Corps. Ender's Game was recognized as \"best novel\" by the 1985 Nebula Award and the 1986 Hugo Award in the genres of science fiction and fantasy. Its four sequels—Speaker for the Dead (1986), Xenocide (1991), Children of the Mind (1996), and Ender in Exile (2008)—follow Ender's subsequent travels to many different worlds in the galaxy. In addition, the later novella A War of Gifts (2007) and novel Ender's Shadow (1999), plus other novels in the Shadow saga, take place during the same time period as the original.",
-        "publishYear": 1985,
-        "bookshelf": false
-      },
-      {
-        "id": 4,
-        "title": "Kings of the Wyld",
-        "author": "Nicholas Eames",
-        "img": "https://covers.openlibrary.org/b/isbn/0316362476-M.jpg",
-        "genre": "fantasy",
-        "description": "\"Clay Cooper and his band were once the best of the best -- the meanest, dirtiest, most feared crew of mercenaries this side of the Heartwyld. Their glory days long past, the mercs have grown apart and grown old, fat, drunk - or a combination of the three. Then an ex-bandmate turns up at Clay's door with a plea for help. His daughter Rose is trapped in a city besieged by an enemy one hundred thousand strong and hungry for blood. Rescuing Rose is the kind of mission that only the very brave or the very stupid would sign up for. It's time to get the band back together for one last tour across the Wyld\"--",
-        "publishYear": 2017,
-        "bookshelf": false
-      },
-      {
-        "id": 5,
-        "title": "Leviathan Wakes (The Expanse #1)",
-        "author": "James S. A. Corey",
-        "img": "https://covers.openlibrary.org/b/isbn/1841499897-M.jpg",
-        "genre": "science fiction",
-        "description": "Humanity has colonized the solar system—Mars, the Moon, the Asteroid Belt and beyond—but the stars are still out of our reach. Jim Holden is XO of an ice miner making runs from the rings of Saturn to the mining stations of the Belt. When he and his crew stumble upon a derelict ship, the Scopuli, they find themselves in possession of a secret they never wanted. A secret that someone is willing to kill for—and kill on a scale unfathomable to Jim and his crew. War is brewing in the system unless he can find out who left the ship and why. Detective Miller is looking for a girl in a system of billions, but her parents have money and money talks. When the trail leads him to the Scopuli and rebel sympathizer Holden, he realizes that this girl may be the key to everything. Holden and Miller must thread the needle between the Earth government, the Outer Planet revolutionaries, and secretive corporations—and the odds are against them. But out in the Belt, the rules are different, and one small ship can change the fate of the universe.",
-        "publishYear": 2012,
-        "bookshelf": false
-      },
-      {
-        "id": 6,
-        "title": "The Fifth Season (The Broken Earth #1)",
-        "author": "N. K. Jemisin",
-        "img": "https://covers.openlibrary.org/b/isbn/0356508196-M.jpg",
-        "genre": "fantasy/science fiction",
-        "description": "This is the way the world ends. Again. Three terrible things happen in a single day. Essun, a woman living an ordinary life in a small town, comes home to find that her husband has brutally murdered their son and kidnapped their daughter. Meanwhile, mighty Sanze -- the world-spanning empire whose innovations have been civilization's bedrock for a thousand years -- collapses as most of its citizens are murdered to serve a madman's vengeance. And worst of all, across the heart of the vast continent known as the Stillness, a great red rift has been torn into the heart of the earth, spewing ash enough to darken the sky for years. Or centuries. Now Essun must pursue the wreckage of her family through a deadly, dying land. Without sunlight, clean water, or arable land, and with limited stockpiles of supplies, there will be war all across the Stillness: a battle royale of nations not for power or territory, but simply for the basic resources necessary to get through the long dark night. Essun does not care if the world falls apart around her. She'll break it herself, if she must, to save her daughter.",
-        "publishYear": 2015,
-        "bookshelf": false
-      },
-      {
-        "id": 7,
-        "title": "The Golden Compass (His Dark Materials #1)",
-        "author": "Philip Pullman",
-        "img": "https://covers.openlibrary.org/b/isbn/0440238137-M.jpg",
-        "genre": "fantasy",
-        "description": "In a landmark epic of fantasy and storytelling, Philip Pullman invites readers into a world as convincing and thoroughly realized as Narnia, Earthsea, or Redwall. Here lives an orphaned ward named Lyra Belacqua, whose carefree life among the scholars at Oxford's Jordan College is shattered by the arrival of two powerful visitors. First, her fearsome uncle, Lord Asriel, appears with evidence of mystery and danger in the far North, including photographs of a mysterious celestial phenomenon called Dust and the dim outline of a city suspended in the Aurora Borealis that he suspects is part of an alternate universe. He leaves Lyra in the care of Mrs. Coulter, an enigmatic scholar and explorer who offers to give Lyra the attention her uncle has long refused her. In this multilayered narrative, however, nothing is as it seems. Lyra sets out for the top of the world in search of her kidnapped playmate, Roger, bearing a rare truth-telling instrument, the compass of the title. All around her children are disappearing—victims of so-called \"Gobblers\"—and being used as subjects in terrible experiments that separate humans from their daemons, creatures that reflect each person's inner being. And somehow, both Lord Asriel and Mrs. Coulter are involved.",
-        "publishYear": 1995,
-        "bookshelf": false
-      },
-      {
-        "id": 8,
-        "title": "Watchmen",
-        "author": "Alan Moore",
-        "img": "https://covers.openlibrary.org/b/isbn/0446386898-M.jpg",
-        "genre": "graphic novel",
-        "description": "This Hugo Award-winning graphic novel chronicles the fall from grace of a group of super-heroes plagued by all-too-human failings. Along the way, the concept of the super-hero is dissected as the heroes are stalked by an unknown assassin. One of the most influential graphic novels of all time and a perennial best-seller, Watchmen has been studied on college campuses across the nation and is considered a gateway title, leading readers to other graphic novels such as V for Vendetta, Batman: The Dark Knight Returns and The Sandman series.",
-        "publishYear": 1987,
-        "bookshelf": false
-      },
-      {
-        "id": 9,
-        "title": "Batman: The Dark Knight Returns #1",
-        "author": "Frank Miller",
-        "img": "https://covers.openlibrary.org/b/isbn/1563893428-M.jpg",
-        "genre": "graphic novel",
-        "description": "This masterpiece of comics storytelling brings to life a dark world…and an even darker man. Frank Miller completely reinvents the legend of Batman in his saga of a near-future Gotham City gone to rot, ten years after the Dark Knight’s retirement.",
-        "publishYear": 1986,
-        "bookshelf": false
-      },
-      {
-        "id": 10,
-        "title": "Blood of Elves (The Witcher #1)",
-        "author": "Andrzej Sapkowski",
-        "img": "https://covers.openlibrary.org/b/isbn/0316438987-M.jpg",
-        "genre": "science fiction",
-        "description": "The New York Times bestselling series that inspired the international hit video game: The Witcher. For over a century, humans, dwarves, gnomes, and elves have lived together in relative peace. But times have changed, the uneasy peace is over, and now the races are fighting once again. The only good elf, it seems, is a dead elf. Geralt of Rivia, the cunning assassin known as The Witcher, has been waiting for the birth of a prophesied child. This child has the power to change the world - for good, or for evil. As the threat of war hangs over the land and the child is hunted for her extraordinary powers, it will become Geralt's responsibility to protect them all - and the Witcher never accepts defeat.",
-        "publishYear": "1994",
-        "bookshelf": false
-      }
-    ]
-  }
+  "books": [
+    {
+      "id": 1,
+      "title": "Dune",
+      "author": "Frank Herbert",
+      "img": "https://covers.openlibrary.org/b/isbn/0425027066-M.jpg",
+      "genre": "science fiction",
+      "description": "Set on the desert planet Arrakis, Dune is the story of the boy Paul Atreides, heir to a noble family tasked with ruling an inhospitable world where the only thing of value is the \"spice\" melange, a drug capable of extending life and enhancing consciousness. Coveted across the known universe, melange is a prize worth killing for...\r\n\r\nWhen House Atreides is betrayed, the destruction of Paul's family will set the boy on a journey toward a destiny greater than he could ever have imagined. And as he evolves into the mysterious man known as Muad'Dib, he will bring to fruition humankind's most ancient and unattainable dream.\r\n\r\nA stunning blend of adventure and mysticism, environmentalism and politics, Dune won the first Nebula Award, shared the Hugo Award, and formed the basis of what is undoubtedly the grandest epic in science fiction.",
+      "publishYear": 1965,
+      "bookshelf": false
+    },
+    {
+      "id": 2,
+      "title": "A Memory Called Empire",
+      "author": "Arkady Martine",
+      "img": "https://covers.openlibrary.org/b/isbn/1250186447-M.jpg",
+      "genre": "science fiction",
+      "description": "Won the 2020 Hugo for Best Novel.\r\nAmbassador Mahit Dzmare is posted far from her mining station home, to the Empire's glorious capital. Yet when she arrives, she discovers her predecessor was murdered. But no-one will admit his death wasn't accidental - and she might be next.\r\nMahit must navigate the capital's deadly halls of power, while hunting the killer. She must also somehow stop the Empire from annexing her fiercely independent colony. As she sinks deeper into this seductive yet unfamiliar culture, Mahit engages in intrigues of her own. For she's hiding an extraordinary technological secret, one which might destroy her station and its way of life.Or it might save them all from annihilation.",
+      "publishYear": 2019,
+      "bookshelf": false
+    },
+    {
+      "id": 3,
+      "title": "Ender's Game",
+      "author": "Orson Scott Card",
+      "img": "https://covers.openlibrary.org/b/isbn/0812533550-M.jpg",
+      "genre": "science fiction",
+      "description": "Ender's Game is a 1985 military science fiction novel by American author Orson Scott Card. Set at an unspecified date in Earth's future, the novel presents an imperiled humankind after two conflicts with the Formics, an insectoid alien species they dub the \"buggers\". In preparation for an anticipated third invasion, children, including the novel's protagonist, Andrew \"Ender\" Wiggin, are trained from a very young age by putting them through increasingly difficult games, including some in zero gravity, where Ender's tactical genius is revealed. The book originated as a short story of the same name, published in the August 1977 issue of Analog Science Fiction and Fact. The novel was published on January 15, 1985. Later, by elaborating on characters and plotlines depicted in the novel, Card was able to write additional books in the Ender's Game series. Card also released an updated version of Ender's Game in 1991, changing some political facts to reflect the times more accurately (e.g., to include the recent collapse of the Soviet Union and the end of the Cold War). The novel has been translated into 34 languages. Reception of the book has been mostly positive. It has become suggested reading for many military organizations, including the United States Marine Corps. Ender's Game was recognized as \"best novel\" by the 1985 Nebula Award and the 1986 Hugo Award in the genres of science fiction and fantasy. Its four sequels—Speaker for the Dead (1986), Xenocide (1991), Children of the Mind (1996), and Ender in Exile (2008)—follow Ender's subsequent travels to many different worlds in the galaxy. In addition, the later novella A War of Gifts (2007) and novel Ender's Shadow (1999), plus other novels in the Shadow saga, take place during the same time period as the original.",
+      "publishYear": 1985,
+      "bookshelf": false
+    },
+    {
+      "id": 4,
+      "title": "Kings of the Wyld",
+      "author": "Nicholas Eames",
+      "img": "https://covers.openlibrary.org/b/isbn/0316362476-M.jpg",
+      "genre": "fantasy",
+      "description": "\"Clay Cooper and his band were once the best of the best -- the meanest, dirtiest, most feared crew of mercenaries this side of the Heartwyld. Their glory days long past, the mercs have grown apart and grown old, fat, drunk - or a combination of the three. Then an ex-bandmate turns up at Clay's door with a plea for help. His daughter Rose is trapped in a city besieged by an enemy one hundred thousand strong and hungry for blood. Rescuing Rose is the kind of mission that only the very brave or the very stupid would sign up for. It's time to get the band back together for one last tour across the Wyld\"--",
+      "publishYear": 2017,
+      "bookshelf": false
+    },
+    {
+      "id": 5,
+      "title": "Leviathan Wakes (The Expanse #1)",
+      "author": "James S. A. Corey",
+      "img": "https://covers.openlibrary.org/b/isbn/1841499897-M.jpg",
+      "genre": "science fiction",
+      "description": "Humanity has colonized the solar system—Mars, the Moon, the Asteroid Belt and beyond—but the stars are still out of our reach. Jim Holden is XO of an ice miner making runs from the rings of Saturn to the mining stations of the Belt. When he and his crew stumble upon a derelict ship, the Scopuli, they find themselves in possession of a secret they never wanted. A secret that someone is willing to kill for—and kill on a scale unfathomable to Jim and his crew. War is brewing in the system unless he can find out who left the ship and why. Detective Miller is looking for a girl in a system of billions, but her parents have money and money talks. When the trail leads him to the Scopuli and rebel sympathizer Holden, he realizes that this girl may be the key to everything. Holden and Miller must thread the needle between the Earth government, the Outer Planet revolutionaries, and secretive corporations—and the odds are against them. But out in the Belt, the rules are different, and one small ship can change the fate of the universe.",
+      "publishYear": 2012,
+      "bookshelf": false
+    },
+    {
+      "id": 6,
+      "title": "The Fifth Season (The Broken Earth #1)",
+      "author": "N. K. Jemisin",
+      "img": "https://covers.openlibrary.org/b/isbn/0356508196-M.jpg",
+      "genre": "fantasy/science fiction",
+      "description": "This is the way the world ends. Again. Three terrible things happen in a single day. Essun, a woman living an ordinary life in a small town, comes home to find that her husband has brutally murdered their son and kidnapped their daughter. Meanwhile, mighty Sanze -- the world-spanning empire whose innovations have been civilization's bedrock for a thousand years -- collapses as most of its citizens are murdered to serve a madman's vengeance. And worst of all, across the heart of the vast continent known as the Stillness, a great red rift has been torn into the heart of the earth, spewing ash enough to darken the sky for years. Or centuries. Now Essun must pursue the wreckage of her family through a deadly, dying land. Without sunlight, clean water, or arable land, and with limited stockpiles of supplies, there will be war all across the Stillness: a battle royale of nations not for power or territory, but simply for the basic resources necessary to get through the long dark night. Essun does not care if the world falls apart around her. She'll break it herself, if she must, to save her daughter.",
+      "publishYear": 2015,
+      "bookshelf": false
+    },
+    {
+      "id": 7,
+      "title": "The Golden Compass (His Dark Materials #1)",
+      "author": "Philip Pullman",
+      "img": "https://covers.openlibrary.org/b/isbn/0440238137-M.jpg",
+      "genre": "fantasy",
+      "description": "In a landmark epic of fantasy and storytelling, Philip Pullman invites readers into a world as convincing and thoroughly realized as Narnia, Earthsea, or Redwall. Here lives an orphaned ward named Lyra Belacqua, whose carefree life among the scholars at Oxford's Jordan College is shattered by the arrival of two powerful visitors. First, her fearsome uncle, Lord Asriel, appears with evidence of mystery and danger in the far North, including photographs of a mysterious celestial phenomenon called Dust and the dim outline of a city suspended in the Aurora Borealis that he suspects is part of an alternate universe. He leaves Lyra in the care of Mrs. Coulter, an enigmatic scholar and explorer who offers to give Lyra the attention her uncle has long refused her. In this multilayered narrative, however, nothing is as it seems. Lyra sets out for the top of the world in search of her kidnapped playmate, Roger, bearing a rare truth-telling instrument, the compass of the title. All around her children are disappearing—victims of so-called \"Gobblers\"—and being used as subjects in terrible experiments that separate humans from their daemons, creatures that reflect each person's inner being. And somehow, both Lord Asriel and Mrs. Coulter are involved.",
+      "publishYear": 1995,
+      "bookshelf": false
+    },
+    {
+      "id": 8,
+      "title": "Watchmen",
+      "author": "Alan Moore",
+      "img": "https://covers.openlibrary.org/b/isbn/0446386898-M.jpg",
+      "genre": "graphic novel",
+      "description": "This Hugo Award-winning graphic novel chronicles the fall from grace of a group of super-heroes plagued by all-too-human failings. Along the way, the concept of the super-hero is dissected as the heroes are stalked by an unknown assassin. One of the most influential graphic novels of all time and a perennial best-seller, Watchmen has been studied on college campuses across the nation and is considered a gateway title, leading readers to other graphic novels such as V for Vendetta, Batman: The Dark Knight Returns and The Sandman series.",
+      "publishYear": 1987,
+      "bookshelf": false
+    },
+    {
+      "id": 9,
+      "title": "Batman: The Dark Knight Returns #1",
+      "author": "Frank Miller",
+      "img": "https://covers.openlibrary.org/b/isbn/1563893428-M.jpg",
+      "genre": "graphic novel",
+      "description": "This masterpiece of comics storytelling brings to life a dark world…and an even darker man. Frank Miller completely reinvents the legend of Batman in his saga of a near-future Gotham City gone to rot, ten years after the Dark Knight’s retirement.",
+      "publishYear": 1986,
+      "bookshelf": false
+    },
+    {
+      "id": 10,
+      "title": "Blood of Elves (The Witcher #1)",
+      "author": "Andrzej Sapkowski",
+      "img": "https://covers.openlibrary.org/b/isbn/0316438987-M.jpg",
+      "genre": "science fiction",
+      "description": "The New York Times bestselling series that inspired the international hit video game: The Witcher. For over a century, humans, dwarves, gnomes, and elves have lived together in relative peace. But times have changed, the uneasy peace is over, and now the races are fighting once again. The only good elf, it seems, is a dead elf. Geralt of Rivia, the cunning assassin known as The Witcher, has been waiting for the birth of a prophesied child. This child has the power to change the world - for good, or for evil. As the threat of war hangs over the land and the child is hunted for her extraordinary powers, it will become Geralt's responsibility to protect them all - and the Witcher never accepts defeat.",
+      "publishYear": "1994",
+      "bookshelf": false
+    },
+    {
+      "id": 11,
+      "title": "Test",
+      "author": "Test",
+      "img": "Test",
+      "genre": "Test",
+      "description": "Test",
+      "publishYear": "1000",
+      "bookshelf": false
+    }
+  ]
+}
