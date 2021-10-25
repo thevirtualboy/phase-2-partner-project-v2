@@ -19,6 +19,7 @@ function App() {
 // set state
   const [allBooks, setAllBooks] = useState([])
   const [displayBooks, setDisplayBooks] = useState([])
+  const [bookshelf, setBookShelf] = useState([])
   const [formData, setFormData] = useState({
     id: "",
     title: "",
@@ -37,11 +38,16 @@ function App() {
       .then(data => {
         setAllBooks(data)
         setDisplayBooks(data)
+        setBookShelf(data.filter(item => item.bookshelf !== false))
       })
   }, [])
 
   function handleFormChange(e) {
     setFormData({...formData, [e.target.name] : e.target.value})
+  }
+
+  function handleChecked(e) {
+    setFormData({...formData, [e.target.name] : e.target.checked})
   }
 
   function handleSubmit(e) {
@@ -55,6 +61,7 @@ function App() {
     }).then(r => r.json())
     .then(data => {
       setDisplayBooks([...allBooks, data])
+      updateShelf(data)
       setFormData({
         id: "",
         title: "",
@@ -68,12 +75,14 @@ function App() {
     })
   }
 // bookshelf functionality
-  const bookshelf = allBooks.filter(book => book.bookshelf === true)
-
   function updateShelf(clickedBook) {
-    const updatedBooks = allBooks.map(book =>
-      book.id === clickedBook.id? clickedBook : book)
-    setAllBooks(updatedBooks)
+    if (clickedBook.bookshelf === true) {
+      const shelf = [...bookshelf, clickedBook]
+      setBookShelf(shelf)
+    } else {
+      const shelf = bookshelf.filter(item => item.id !== clickedBook.id)
+      setBookShelf(shelf)
+    }
   }
 
   return (
@@ -83,14 +92,13 @@ function App() {
         <NavBar />
         <Switch>
           <Route exact path="/">
-            <Home allBooks={displayBooks}/>
-            <Home allBooks={allBooks} updateShelf={updateShelf}/>
+            <Home allBooks={displayBooks} updateShelf={updateShelf}/>
           </Route>
           <Route exact path="/bookshelf">
             <Bookshelf bookshelf={bookshelf} updateShelf={updateShelf}/>
           </Route>
           <Route exact path="/addbook">
-            <AddBook formData={formData} handleFormChange={handleFormChange} handleSubmit={handleSubmit} />
+            <AddBook formData={formData} handleFormChange={handleFormChange} handleSubmit={handleSubmit} handleChecked={handleChecked} />
           </Route>
         </Switch>
       </div>
