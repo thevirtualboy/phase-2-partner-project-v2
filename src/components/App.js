@@ -42,6 +42,7 @@ function App() {
       })
   }, [])
 
+// form submit functionality
   function handleFormChange(e) {
     setFormData({...formData, [e.target.name] : e.target.value})
   }
@@ -49,7 +50,7 @@ function App() {
   function handleChecked(e) {
     setFormData({...formData, [e.target.name] : e.target.checked})
   }
-
+  
   function handleSubmit(e) {
     e.preventDefault()
     fetch('http://localhost:3000/books', {
@@ -74,6 +75,7 @@ function App() {
       })
     })
   }
+  
 // bookshelf functionality
   function updateShelf(clickedBook) {
     if (clickedBook.bookshelf === true) {
@@ -84,6 +86,26 @@ function App() {
       setBookShelf(shelf)
     }
   }
+  
+  
+// delete a book from the catalog
+  function deleteBook(clickedBook) {
+    const updatedBooks = allBooks.filter(book => book.id !== clickedBook.id)
+    setAllBooks(updatedBooks)
+  }
+  
+  function handleDelete(book) {
+    fetch(`http://localhost:3000/books/${book.id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+        .then(resp => resp.json())
+        .then(data => console.log(data))
+    
+    deleteBook(book)
+  }
 
   return (
     <div>
@@ -92,10 +114,10 @@ function App() {
         <NavBar />
         <Switch>
           <Route exact path="/">
-            <Home allBooks={displayBooks} updateShelf={updateShelf}/>
+            <Home allBooks={allBooks} updateShelf={updateShelf} handleDelete={handleDelete}/>
           </Route>
           <Route exact path="/bookshelf">
-            <Bookshelf bookshelf={bookshelf} updateShelf={updateShelf}/>
+            <Bookshelf bookshelf={bookshelf} updateShelf={updateShelf} handleDelete={handleDelete}/>
           </Route>
           <Route exact path="/addbook">
             <AddBook formData={formData} handleFormChange={handleFormChange} handleSubmit={handleSubmit} handleChecked={handleChecked} />
