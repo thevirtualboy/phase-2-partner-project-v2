@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const cardStyle = {
     display: "flex",
@@ -15,21 +15,9 @@ const cardStyle = {
     flexBasis: "20%"
 }
 
-function BookCard({updateShelf, handleDelete, book, book:{id, title, author, genre, img, publishYear, description, bookshelf}}) {
 
-    function handleClick() {
-        fetch(`http://localhost:3000/books/${id}`, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                bookshelf: !bookshelf,
-            })
-        })
-            .then(resp => resp.json())
-            .then(data => updateShelf(data))
-    }
+function BookCard({handleDelete, handleClick, book, book:{title, author, genre, img, publishYear, description, bookshelf}}) {
+    const [buttonText , setButtonText] = useState(bookshelf)
 
     return (
         <div style={cardStyle}>
@@ -39,7 +27,7 @@ function BookCard({updateShelf, handleDelete, book, book:{id, title, author, gen
             <p>First published in {publishYear}</p>
             <p>Genre: {genre}</p>
             <button>Show Description</button>
-            <button onClick={handleClick}>{bookshelf ? "Remove from Bookshelf" : "Add to Bookshelf "}</button>
+            <button onClick={() => {setButtonText(!buttonText); handleClick(book)}}>{buttonText ? "Remove from Bookshelf" : "Add to Bookshelf "}</button>
             <button onClick={() => handleDelete(book)}>Delete from Library</button> 
         </div>
     )

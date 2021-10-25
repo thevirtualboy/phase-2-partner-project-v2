@@ -75,7 +75,26 @@ function App() {
       })
     })
   }
-  
+
+  function handleClick(book) {
+    fetch(`http://localhost:3000/books/${book.id}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            bookshelf: !book.bookshelf,
+        })
+    })
+        .then(resp => resp.json())
+        .then(data => {
+            updateShelf(data)
+            const idx = displayBooks.findIndex(item => item.id === book.id)
+            const tempBooks = [...displayBooks]
+            tempBooks[idx].bookshelf = data.bookshelf
+            setDisplayBooks(tempBooks)
+        })
+  }
 // bookshelf functionality
   function updateShelf(clickedBook) {
     if (clickedBook.bookshelf === true) {
@@ -90,8 +109,8 @@ function App() {
   
 // delete a book from the catalog
   function deleteBook(clickedBook) {
-    const updatedBooks = allBooks.filter(book => book.id !== clickedBook.id)
-    setAllBooks(updatedBooks)
+    const updatedBooks = displayBooks.filter(book => book.id !== clickedBook.id)
+    setDisplayBooks(updatedBooks)
   }
   
   function handleDelete(book) {
@@ -114,7 +133,7 @@ function App() {
         <NavBar />
         <Switch>
           <Route exact path="/">
-            <Home allBooks={allBooks} updateShelf={updateShelf} handleDelete={handleDelete}/>
+            <Home allBooks={displayBooks} updateShelf={updateShelf} handleClick={handleClick} handleDelete={handleDelete} />
           </Route>
           <Route exact path="/bookshelf">
             <Bookshelf bookshelf={bookshelf} updateShelf={updateShelf} handleDelete={handleDelete}/>
