@@ -15,7 +15,22 @@ const cardStyle = {
     flexBasis: "20%"
 }
 
-function BookCard({book:{title, author, genre, img, publishYear, description}}) {
+function BookCard({updateShelf, book, book:{id, title, author, genre, img, publishYear, description, bookshelf}}) {
+
+    function handleClick() {
+        fetch(`http://localhost:3000/books/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                bookshelf: !bookshelf,
+            })
+        })
+            .then(resp => resp.json())
+            .then(data => updateShelf(data))
+    }
+
     return (
         <div style={cardStyle}>
             <img  src={img} alt={title} />
@@ -24,7 +39,7 @@ function BookCard({book:{title, author, genre, img, publishYear, description}}) 
             <p>First published in {publishYear}</p>
             <p>Genre: {genre}</p>
             <button>Show Description</button>
-            <button>Add To Bookshelf</button>
+            <button onClick={handleClick}>{bookshelf ? "Remove from Bookshelf" : "Add to Bookshelf "}</button>
             <button>Delete from Library</button> 
         </div>
     )

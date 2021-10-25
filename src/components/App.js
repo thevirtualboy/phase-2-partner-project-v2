@@ -16,6 +16,7 @@ const pageStyle = {
 }
 
 function App() {
+// set state
   const [allBooks, setAllBooks] = useState([])
   const [displayBooks, setDisplayBooks] = useState([])
   const [formData, setFormData] = useState({
@@ -29,6 +30,7 @@ function App() {
     bookshelf: false
   })
 
+// GET data from local db.json
   useEffect(() =>{
     fetch('http://localhost:3000/books')
       .then(resp => resp.json())
@@ -65,6 +67,14 @@ function App() {
       })
     })
   }
+// bookshelf functionality
+  const bookshelf = allBooks.filter(book => book.bookshelf === true)
+
+  function updateShelf(clickedBook) {
+    const updatedBooks = allBooks.map(book =>
+      book.id === clickedBook.id? clickedBook : book)
+    setAllBooks(updatedBooks)
+  }
 
   return (
     <div>
@@ -74,9 +84,10 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Home allBooks={displayBooks}/>
+            <Home allBooks={allBooks} updateShelf={updateShelf}/>
           </Route>
           <Route exact path="/bookshelf">
-            <Bookshelf />
+            <Bookshelf bookshelf={bookshelf} updateShelf={updateShelf}/>
           </Route>
           <Route exact path="/addbook">
             <AddBook formData={formData} handleFormChange={handleFormChange} handleSubmit={handleSubmit} />
