@@ -34,8 +34,25 @@ function App() {
     setAllBooks(updatedBooks)
   }
 
-
+// delete a book from the catalog
+  function deleteBook(clickedBook) {
+    const updatedBooks = allBooks.filter(book => book.id !== clickedBook.id)
+    setAllBooks(updatedBooks)
+  }
   
+  function handleDelete(book) {
+    fetch(`http://localhost:3000/books/${book.id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+        .then(resp => resp.json())
+        .then(data => console.log(data))
+    
+    deleteBook(book)
+}
+
   return (
     <div>
       <Header />
@@ -43,10 +60,10 @@ function App() {
         <NavBar />
         <Switch>
           <Route exact path="/">
-            <Home allBooks={allBooks} updateShelf={updateShelf}/>
+            <Home allBooks={allBooks} updateShelf={updateShelf} handleDelete={handleDelete}/>
           </Route>
           <Route exact path="/bookshelf">
-            <Bookshelf bookshelf={bookshelf} updateShelf={updateShelf}/>
+            <Bookshelf bookshelf={bookshelf} updateShelf={updateShelf} handleDelete={handleDelete}/>
           </Route>
           <Route exact path="/addbook">
             <AddBook />

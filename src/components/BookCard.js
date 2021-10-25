@@ -15,7 +15,7 @@ const cardStyle = {
     flexBasis: "20%"
 }
 
-function BookCard({updateShelf, book, book:{id, title, author, genre, img, publishYear, description, bookshelf}}) {
+function BookCard({updateShelf, handleDelete, book, book:{id, title, author, genre, img, publishYear, description, bookshelf}}) {
 
     function handleClick() {
         fetch(`http://localhost:3000/books/${id}`, {
@@ -40,7 +40,7 @@ function BookCard({updateShelf, book, book:{id, title, author, genre, img, publi
             <p>Genre: {genre}</p>
             <button>Show Description</button>
             <button onClick={handleClick}>{bookshelf ? "Remove from Bookshelf" : "Add to Bookshelf "}</button>
-            <button>Delete from Library</button> 
+            <button onClick={() => handleDelete(book)}>Delete from Library</button> 
         </div>
     )
 }
