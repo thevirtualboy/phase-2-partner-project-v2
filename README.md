@@ -5,6 +5,8 @@
 
 Components: App, Search, Home, AllBooks, BookShelf, BookCard, AddBookForm
 
+![Component Mapping Draft](./public/component-mapping-draft.png)
+
 Client-side routes: AllBooks, Bookshelf, AddBookForm
 
 Functionality and Features
