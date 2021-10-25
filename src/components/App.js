@@ -9,22 +9,64 @@ import Header from './Header';
 
 const pageStyle = {
   backgroundColor: "#f3eeda",
-  borderRadius: "20px 20px 0 0",
+  borderRadius: "10px 10px 0 0",
   borderTop: "solid 1px",
-  boxShadow: "0 -0.5px 5px"
+  boxShadow: "0 -0.5px 5px",
+  height: "fill"
 }
 
 function App() {
 // set state
   const [allBooks, setAllBooks] = useState([])
+  const [displayBooks, setDisplayBooks] = useState([])
+  const [formData, setFormData] = useState({
+    id: "",
+    title: "",
+    author: "",
+    img: "",
+    genre: "",
+    description: "",
+    publishYear: "",
+    bookshelf: false
+  })
 
 // GET data from local db.json
   useEffect(() =>{
     fetch('http://localhost:3000/books')
       .then(resp => resp.json())
-      .then(data => setAllBooks(data))
+      .then(data => {
+        setAllBooks(data)
+        setDisplayBooks(data)
+      })
   }, [])
 
+  function handleFormChange(e) {
+    setFormData({...formData, [e.target.name] : e.target.value})
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    fetch('http://localhost:3000/books', {
+      method: "POST",
+      headers: {
+        "Content-Type" : "application/json"
+      },
+      body: JSON.stringify(formData) 
+    }).then(r => r.json())
+    .then(data => {
+      setDisplayBooks([...allBooks, data])
+      setFormData({
+        id: "",
+        title: "",
+        author: "",
+        img: "",
+        genre: "",
+        description: "",
+        publishYear: "",
+        bookshelf: false
+      })
+    })
+  }
 // bookshelf functionality
   const bookshelf = allBooks.filter(book => book.bookshelf === true)
 
@@ -34,8 +76,6 @@ function App() {
     setAllBooks(updatedBooks)
   }
 
-
-  
   return (
     <div>
       <Header />
@@ -43,13 +83,14 @@ function App() {
         <NavBar />
         <Switch>
           <Route exact path="/">
+            <Home allBooks={displayBooks}/>
             <Home allBooks={allBooks} updateShelf={updateShelf}/>
           </Route>
           <Route exact path="/bookshelf">
             <Bookshelf bookshelf={bookshelf} updateShelf={updateShelf}/>
           </Route>
           <Route exact path="/addbook">
-            <AddBook />
+            <AddBook formData={formData} handleFormChange={handleFormChange} handleSubmit={handleSubmit} />
           </Route>
         </Switch>
       </div>
