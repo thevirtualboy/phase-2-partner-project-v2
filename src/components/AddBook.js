@@ -4,7 +4,6 @@ const formStyle = {
     rowGap: "15px",
     maxWidth: "500px",
     marginLeft: "90px",
-    paddingBottom: "100%"
 }
 
 const inputStyle = {
@@ -18,16 +17,16 @@ const buttonStyle = {
     marginTop: "15px"
 }
 
-function AddBook({formData, handleFormChange, handleSubmit, handleChecked}) {
+function AddBook({formData: {title, author, genre, publishYear, img, description, bookshelf}, handleFormChange, handleSubmit, handleChecked}) {
     return (
-        <>
+        <div style={{height: "100vh"}}>
             <h1 style={{marginLeft: "60px"}}>Form:</h1>
             <form style={formStyle} onSubmit={handleSubmit}>
                 <input 
                     type="text" 
                     placeholder="Title" 
                     name="title" 
-                    value={formData.title} 
+                    value={title} 
                     onChange={handleFormChange}
                     style={inputStyle}
                 ></input>
@@ -35,7 +34,7 @@ function AddBook({formData, handleFormChange, handleSubmit, handleChecked}) {
                     type="text" 
                     placeholder="Author" 
                     name="author" 
-                    value={formData.author} 
+                    value={author} 
                     onChange={handleFormChange}
                     style={inputStyle}
                 ></input>
@@ -43,7 +42,7 @@ function AddBook({formData, handleFormChange, handleSubmit, handleChecked}) {
                     type="text" 
                     placeholder="Genre" 
                     name="genre" 
-                    value={formData.genre} 
+                    value={genre} 
                     onChange={handleFormChange}
                     style={inputStyle}
                 ></input>
@@ -51,7 +50,7 @@ function AddBook({formData, handleFormChange, handleSubmit, handleChecked}) {
                     type="number" 
                     placeholder="Year Published" 
                     name="publishYear" 
-                    value={formData.publishYear} 
+                    value={publishYear} 
                     onChange={handleFormChange}
                     style={inputStyle}
                 ></input>
@@ -59,7 +58,7 @@ function AddBook({formData, handleFormChange, handleSubmit, handleChecked}) {
                     type="text" 
                     placeholder="Cover Image URL" 
                     name="img" 
-                    value={formData.img} 
+                    value={img} 
                     onChange={handleFormChange}
                     style={inputStyle}
                 ></input>
@@ -67,7 +66,7 @@ function AddBook({formData, handleFormChange, handleSubmit, handleChecked}) {
                     placeholder="Description" 
                     style={{height: "75px"}} 
                     name="description" 
-                    value={formData.description} 
+                    value={description} 
                     onChange={handleFormChange}
                 ></textarea>
                 <span style={{alignSelf: "flex-end"}}>
@@ -75,13 +74,13 @@ function AddBook({formData, handleFormChange, handleSubmit, handleChecked}) {
                     <input 
                         type="checkbox" 
                         name="bookshelf" 
-                        checked={formData.bookshelf}
+                        checked={bookshelf}
                         onChange={handleChecked}
                     ></input>
                 </span>
                 <button type="submit" style={buttonStyle}>Submit Book</button>
             </form>
-        </>
+        </div>
     )
 }
 

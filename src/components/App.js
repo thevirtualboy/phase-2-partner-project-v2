@@ -12,7 +12,9 @@ const pageStyle = {
   borderRadius: "10px 10px 0 0",
   borderTop: "solid 1px",
   boxShadow: "0 -0.5px 5px",
-  height: "fill"
+  minHeight: "100vh",
+  position: "relative",
+  top: "55px"
 }
 
 function App() {
@@ -53,6 +55,9 @@ function App() {
   
   function handleSubmit(e) {
     e.preventDefault()
+    if (formData.img === "") {
+      formData.img = "http://lgimages.s3.amazonaws.com/nc-md.gif"
+    }
     fetch('http://localhost:3000/books', {
       method: "POST",
       headers: {
@@ -136,7 +141,7 @@ function App() {
             <Home allBooks={displayBooks} updateShelf={updateShelf} handleClick={handleClick} handleDelete={handleDelete} />
           </Route>
           <Route exact path="/bookshelf">
-            <Bookshelf bookshelf={bookshelf} updateShelf={updateShelf} handleDelete={handleDelete}/>
+            <Bookshelf bookshelf={bookshelf} updateShelf={updateShelf} handleDelete={handleDelete} handleClick={handleClick} />
           </Route>
           <Route exact path="/addbook">
             <AddBook formData={formData} handleFormChange={handleFormChange} handleSubmit={handleSubmit} handleChecked={handleChecked} />
