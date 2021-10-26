@@ -5,10 +5,31 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #eaeded;
+  background-color: #Cae3f1;
+  background-image: url(./data/PinClipart.com_free-tree-clipart_156.png), url(./data/PinClipart.com_free-tree-clipart_156flip.png);
+  background-position: left top, right top;
+  background-size: 300px;
+  background-repeat: no-repeat;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.card:hover {
+  transform: scale(1.05)
+}
+
+.bookshelfButton:hover {
+  cursor: pointer;
+  transform: scale(1.05)
+}
+
+.heart:before {
+  content: '❤️';
+}
+
+.heart:hover:before {
+  content: '💔';
 }

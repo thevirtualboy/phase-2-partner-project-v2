@@ -13,7 +13,7 @@ const linkStyles = {
 
 function NavBar() {
     return (
-        <div style={{ display: "flex", justifyContent: "space-around", }}>
+        <div style={{ display: "flex", justifyContent: "space-around", position: "relative", maxWidth: "1000px", margin: "auto"}}>
             <NavLink
                 to="/"
                 exact
