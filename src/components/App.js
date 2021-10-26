@@ -6,6 +6,8 @@ import Bookshelf from './Bookshelf';
 import NavBar from './NavBar';
 import AddBook from './AddBook';
 import Header from './Header';
+import Search from './Search';
+import ShelfSearch from './ShelfSearch';
 
 const pageStyle = {
   backgroundColor: "#f3eeda",
@@ -20,6 +22,9 @@ const pageStyle = {
 function App() {
 // set state
   const [allBooks, setAllBooks] = useState([])
+  const [secondShelf, setSecondShelf] = useState([])
+  const [search, setSearch] = useState("")
+  const [shelfSearch, setShelfSearch] = useState("")
   const [displayBooks, setDisplayBooks] = useState([])
   const [bookshelf, setBookShelf] = useState([])
   const [formData, setFormData] = useState({
@@ -41,6 +46,7 @@ function App() {
         setAllBooks(data)
         setDisplayBooks(data)
         setBookShelf(data.filter(item => item.bookshelf !== false))
+        setSecondShelf(data.filter(item => item.bookshelf !== false))
       })
   }, [])
 
@@ -66,6 +72,7 @@ function App() {
       body: JSON.stringify(formData) 
     }).then(r => r.json())
     .then(data => {
+      setAllBooks([...displayBooks, data])
       setDisplayBooks([...displayBooks, data])
       updateShelf(data)
       setFormData({
@@ -79,6 +86,18 @@ function App() {
         bookshelf: false
       })
     })
+  }
+
+  function handleSearch(e) {
+    setSearch(e.target.value)
+    const tempBooks = allBooks.filter(item => item.title.toLowerCase().includes(e.target.value.toLowerCase()))
+    setDisplayBooks(tempBooks)
+  }
+
+  function handleShelfSearch(e) {
+    setShelfSearch(e.target.value)
+    const tempBooks = secondShelf.filter(item => item.title.toLowerCase().includes(e.target.value.toLowerCase()))
+    setBookShelf(tempBooks)
   }
 
   function handleClick(book) {
@@ -105,9 +124,11 @@ function App() {
     if (clickedBook.bookshelf === true) {
       const shelf = [...bookshelf, clickedBook]
       setBookShelf(shelf)
+      setSecondShelf(shelf)
     } else {
       const shelf = bookshelf.filter(item => item.id !== clickedBook.id)
       setBookShelf(shelf)
+      setSecondShelf(shelf)
     }
   }
   
@@ -138,9 +159,11 @@ function App() {
         <NavBar />
         <Switch>
           <Route exact path="/">
+            <Search search={search} handleSearch={handleSearch} />
             <Home allBooks={displayBooks} updateShelf={updateShelf} handleClick={handleClick} handleDelete={handleDelete} />
           </Route>
           <Route exact path="/bookshelf">
+            <ShelfSearch search={shelfSearch} handleSearch={handleShelfSearch} />
             <Bookshelf bookshelf={bookshelf} updateShelf={updateShelf} handleDelete={handleDelete} handleClick={handleClick} />
           </Route>
           <Route exact path="/addbook">

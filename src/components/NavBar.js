@@ -1,7 +1,16 @@
 import { NavLink } from "react-router-dom";
 
+const navBar = {
+    display: "flex", 
+    justifyContent: "center", 
+    position: "relative", 
+    maxWidth: "1000px", 
+    margin: "auto", 
+    gap: "200px"
+}
+
 const linkStyles = {
-    display: "inline-flex",
+    display: "flex",
     padding: "12px",
     marginBottom: "10px",
     background: "#a79d51",
@@ -9,11 +18,13 @@ const linkStyles = {
     WebkitTextStroke: "0.1px black",
     color: "white",
     borderRadius: "0 0 10px 10px",
+    width: "100px",
+    justifyContent: "center"
 }
 
 function NavBar() {
     return (
-        <div style={{ display: "flex", justifyContent: "space-around", position: "relative", maxWidth: "1000px", margin: "auto"}}>
+        <div style={navBar}>
             <NavLink
                 to="/"
                 exact
