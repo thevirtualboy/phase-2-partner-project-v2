@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import bookAdd from '../data/bookadd.png';
+import bookAdded from '../data/bookadded.png';
+import bookRemove from '../data/bookremove.png';
 
 const cardStyle = {
     display: "flex",
@@ -7,35 +10,27 @@ const cardStyle = {
     textAlign: "center",
     border:"solid 1px #484839",
     borderRadius: "30px", 
-    maxWidth:"400px", 
-    margin:"10px", 
+    width:"350px",
+    minHeight: "600px", 
+    margin:"20px 50px", 
     background:"white",
     padding: "15px",
     boxShadow: "8px 8px 10px #A29e73",
-    flexBasis: "20%",
     transition: "all .2s ease-in-out",
     position: "relative",
-    perspective: "1000",
-}
-
-const bookshelfButtonStyle = {
-    position: "absolute", 
-    top: "-20px", 
-    right: "20px", 
-    fontSize: "40px",
-    transition: "all .1s ease-in-out"
 }
 
 
 function BookCard({handleDelete, handleClick, book, book:{title, author, genre, img, publishYear, description, bookshelf}}) {
     // const [buttonText , setButtonText] = useState(bookshelf)
     const [clicked, setClicked] = useState(bookshelf)
+    const [bookIcon, setBookIcon] = useState(bookAdded)
 
     return (
         <div className="card" style={cardStyle}>
             <img style={{height: "300px"}} src={img} alt={title} />
-            <p className="bookshelfButton" style={bookshelfButtonStyle} title={clicked ? "Remove from Bookshelf" : "Add to Bookshelf"} onClick={() => {setClicked(!clicked); handleClick(book)}}>{clicked ? <span className="heart"></span> : "🤍"}</p>
-            <h3>{title}</h3>
+            <p className="bookshelfButton" title={clicked ? "Remove from Bookshelf" : "Add to Bookshelf"} onClick={() => {setClicked(!clicked); handleClick(book)}}>{clicked ? <img className="icon" src={bookIcon} onMouseOver={() => setBookIcon(bookRemove)} onMouseOut={() => setBookIcon(bookAdded)} /> : <img className="icon" src={bookAdd} />}</p>
+            <h3 style={{marginTop: "1px"}}>{title}</h3>
             <p>Author: {author}</p>
             <p>First published in {publishYear}</p>
             <p>Genre: {genre}</p>
