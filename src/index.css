@@ -23,13 +23,16 @@ code {
 
 .bookshelfButton:hover {
   cursor: pointer;
-  transform: scale(1.05)
 }
 
-.heart:before {
-  content: '❤️';
+.icon {
+  position: absolute;
+  transform: scale(0.1);
+  bottom: 325px;
+  right: -220px;
 }
 
-.heart:hover:before {
-  content: '💔';
+.icon:hover {
+  transition: all .1s ease-in-out;
+  transform: scale(0.12);
 }

@@ -66,7 +66,7 @@ function App() {
       body: JSON.stringify(formData) 
     }).then(r => r.json())
     .then(data => {
-      setDisplayBooks([...allBooks, data])
+      setDisplayBooks([...displayBooks, data])
       updateShelf(data)
       setFormData({
         id: "",
