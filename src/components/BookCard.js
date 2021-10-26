@@ -8,7 +8,7 @@ const cardStyle = {
     flexDirection: "column",
     alignItems: "center",
     textAlign: "center",
-    border:"solid 1px #484839",
+    border:"solid 1px lightgray",
     borderRadius: "30px", 
     width:"350px",
     minHeight: "600px", 
