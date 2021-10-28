@@ -8,6 +8,7 @@ import AddBook from './AddBook';
 import Header from './Header';
 import Search from './Search';
 import ShelfSearch from './ShelfSearch';
+import BookDetails from './BookDetails';
 
 const pageStyle = {
   backgroundColor: "#f3eeda",
@@ -168,6 +169,9 @@ function App() {
           </Route>
           <Route exact path="/addbook">
             <AddBook formData={formData} handleFormChange={handleFormChange} handleSubmit={handleSubmit} handleChecked={handleChecked} />
+          </Route>
+          <Route exact path="/book/:id">
+            <BookDetails bookshelf={bookshelf} handleClick={handleClick} handleDelete={handleDelete}/>
           </Route>
         </Switch>
       </div>

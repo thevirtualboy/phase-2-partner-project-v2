@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import bookAdd from '../data/bookadd.png';
 import bookAdded from '../data/bookadded.png';
 import bookRemove from '../data/bookremove.png';
+import { Link } from "react-router-dom";
 
 const cardStyle = {
     display: "flex",
@@ -34,7 +35,7 @@ function BookCard({handleDelete, handleClick, book, book:{title, author, genre, 
             <p>Author: {author}</p>
             <p>First published in {publishYear}</p>
             <p>Genre: {genre}</p>
-            <button>Show Description</button>
+            <Link to={`/book/${book.id}`}><button>Show Details</button></Link>
             {/* <button onClick={() => {setButtonText(!buttonText); handleClick(book)}}>{buttonText ? "Remove from Bookshelf" : "Add to Bookshelf "}</button> */}
             <button onClick={() => handleDelete(book)}>Delete from Library</button> 
         </div>
