@@ -1,15 +1,20 @@
 import '../App.css';
+
+// packages
 import React, {useState, useEffect} from 'react'
 import { Route, Switch } from 'react-router-dom';
-import Home from './Home';
-import Bookshelf from './Bookshelf';
-import NavBar from './NavBar';
-import AddBook from './AddBook';
+
+// components
 import Header from './Header';
+import NavBar from './NavBar';
+import Home from './Home';
 import Search from './Search';
+import Bookshelf from './Bookshelf';
 import ShelfSearch from './ShelfSearch';
+import AddBookForm from './AddBookForm';
 import BookDetails from './BookDetails';
 
+// css
 const pageStyle = {
   backgroundColor: "#f3eeda",
   borderRadius: "10px 10px 0 0",
@@ -20,14 +25,20 @@ const pageStyle = {
   top: "-40px"
 }
 
+
 function App() {
-// set state
+  // primary data
   const [allBooks, setAllBooks] = useState([])
-  const [secondShelf, setSecondShelf] = useState([])
+
+  // displayed data
+  const [displayBooks, setDisplayBooks] = useState([])
+  const [displayShelf, setDisplayShelf] = useState([])
+
+  // search states
   const [search, setSearch] = useState("")
   const [shelfSearch, setShelfSearch] = useState("")
-  const [displayBooks, setDisplayBooks] = useState([])
-  const [bookshelf, setBookShelf] = useState([])
+
+  // form state
   const [formData, setFormData] = useState({
     id: "",
     title: "",
@@ -39,19 +50,23 @@ function App() {
     bookshelf: false
   })
 
-// GET data from local db.json
+
+  // GET data from local db.json
   useEffect(() =>{
     fetch('http://localhost:3000/books')
       .then(resp => resp.json())
       .then(data => {
         setAllBooks(data)
-        setDisplayBooks(data)
-        setBookShelf(data.filter(item => item.bookshelf !== false))
-        setSecondShelf(data.filter(item => item.bookshelf !== false))
       })
   }, [])
 
-// form submit functionality
+  useEffect(() => {
+    setDisplayBooks(allBooks)
+    setDisplayShelf(allBooks.filter(book => book.bookshelf !== false))
+  }, [allBooks])
+
+
+  // form submit functionality
   function handleFormChange(e) {
     setFormData({...formData, [e.target.name] : e.target.value})
   }
@@ -71,24 +86,28 @@ function App() {
         "Content-Type" : "application/json"
       },
       body: JSON.stringify(formData) 
-    }).then(r => r.json())
-    .then(data => {
-      setAllBooks([...displayBooks, data])
-      setDisplayBooks([...displayBooks, data])
-      updateShelf(data)
-      setFormData({
-        id: "",
-        title: "",
-        author: "",
-        img: "",
-        genre: "",
-        description: "",
-        publishYear: "",
-        bookshelf: false
-      })
+    })
+      .then(r => r.json())
+      .then(data => {
+        setAllBooks([...displayBooks, data])
+        setDisplayBooks([...displayBooks, data])
+        updateShelf(data)
+        setFormData({
+          id: "",
+          title: "",
+          author: "",
+          img: "",
+          genre: "",
+          description: "",
+          publishYear: "",
+          bookshelf: false
+        })
+
     })
   }
 
+
+// search bars
   function handleSearch(e) {
     setSearch(e.target.value)
     const tempBooks = allBooks.filter(item => item.title.toLowerCase().includes(e.target.value.toLowerCase()))
@@ -97,47 +116,23 @@ function App() {
 
   function handleShelfSearch(e) {
     setShelfSearch(e.target.value)
-    const tempBooks = secondShelf.filter(item => item.title.toLowerCase().includes(e.target.value.toLowerCase()))
-    setBookShelf(tempBooks)
+    const tempBooks = displayShelf.filter(item => item.title.toLowerCase().includes(e.target.value.toLowerCase()))
+    setDisplayShelf(tempBooks)
   }
 
-  function handleClick(book) {
-    fetch(`http://localhost:3000/books/${book.id}`, {
-        method: "PATCH",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            bookshelf: !book.bookshelf,
-        })
-    })
-        .then(resp => resp.json())
-        .then(data => {
-            updateShelf(data)
-            const idx = displayBooks.findIndex(item => item.id === book.id)
-            const tempBooks = [...displayBooks]
-            tempBooks[idx].bookshelf = data.bookshelf
-            setDisplayBooks(tempBooks)
-        })
-  }
-// bookshelf functionality
+
+// update display for bookshelf add/remove
   function updateShelf(clickedBook) {
-    if (clickedBook.bookshelf === true) {
-      const shelf = [...bookshelf, clickedBook]
-      setBookShelf(shelf)
-      setSecondShelf(shelf)
-    } else {
-      const shelf = bookshelf.filter(item => item.id !== clickedBook.id)
-      setBookShelf(shelf)
-      setSecondShelf(shelf)
-    }
+    const updatedBooks = allBooks.map(book => book.id === clickedBook.id ? clickedBook : book)
+    setDisplayBooks(updatedBooks)
+    setDisplayShelf(updatedBooks.filter(item => item.bookshelf !== false))
   }
-  
   
 // delete a book from the catalog
   function deleteBook(clickedBook) {
     const updatedBooks = displayBooks.filter(book => book.id !== clickedBook.id)
     setDisplayBooks(updatedBooks)
+    setDisplayShelf(updatedBooks.filter(item => item.bookshelf !== false))
   }
   
   function handleDelete(book) {
@@ -147,12 +142,12 @@ function App() {
             "Content-Type": "application/json",
         }
     })
-        .then(resp => resp.json())
-        .then(data => console.log(data))
-    
+      .then(resp => resp.json())
+      .then(data => console.log(data))
     deleteBook(book)
   }
 
+// JSX return
   return (
     <div>
       <Header />
@@ -160,18 +155,40 @@ function App() {
         <NavBar />
         <Switch>
           <Route exact path="/">
-            <Search search={search} handleSearch={handleSearch} />
-            <Home allBooks={displayBooks} updateShelf={updateShelf} handleClick={handleClick} handleDelete={handleDelete} />
+            <Search
+              search={search}
+              handleSearch={handleSearch}
+            />
+            <Home
+              allBooks={displayBooks}
+              updateShelf={updateShelf}
+              handleDelete={handleDelete}
+            />
           </Route>
           <Route exact path="/bookshelf">
-            <ShelfSearch search={shelfSearch} handleSearch={handleShelfSearch} />
-            <Bookshelf bookshelf={bookshelf} updateShelf={updateShelf} handleDelete={handleDelete} handleClick={handleClick} />
+            <ShelfSearch
+              search={shelfSearch}
+              handleSearch={handleShelfSearch}
+            />
+            <Bookshelf
+              bookshelf={displayShelf}
+              updateShelf={updateShelf}
+              handleDelete={handleDelete}
+            />
           </Route>
           <Route exact path="/addbook">
-            <AddBook formData={formData} handleFormChange={handleFormChange} handleSubmit={handleSubmit} handleChecked={handleChecked} />
+            <AddBookForm
+              formData={formData}
+              handleFormChange={handleFormChange}
+              handleSubmit={handleSubmit}
+              handleChecked={handleChecked}
+            />
           </Route>
           <Route exact path="/book/:id">
-            <BookDetails handleClick={handleClick} handleDelete={handleDelete}/>
+            <BookDetails
+              handleDelete={handleDelete}
+              updateShelf={updateShelf}
+            />
           </Route>
         </Switch>
       </div>

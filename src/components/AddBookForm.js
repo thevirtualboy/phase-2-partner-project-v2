@@ -55,7 +55,7 @@ const formLabelStyle = {
     width: "200px"
 }
 
-function AddBook({formData, formData: {title, author, genre, publishYear, img, description, bookshelf}, handleFormChange, handleSubmit, handleChecked}) {
+function AddBookForm({formData, formData: {title, author, genre, publishYear, img, description, bookshelf}, handleFormChange, handleSubmit, handleChecked}) {
     return (
         <div style={containerStyle}>
             <div style={{width: "600px", marginTop: "0px"}}>
@@ -128,4 +128,4 @@ function AddBook({formData, formData: {title, author, genre, publishYear, img, d
     )
 }
 
-export default AddBook
+export default AddBookForm

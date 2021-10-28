@@ -4,14 +4,20 @@ import bookAdd from '../data/bookadd.png';
 import bookAdded from '../data/bookadded.png';
 import bookRemove from '../data/bookremove.png';
 
+const main = {
+    display:"flex",
+    flexWrap:"wrap",
+    marginTop:"20px",
+    justifyContent:"space-around",
+}
+
 const cardStyle = {
-    // display: "flex",
     flexDirection: "column",
-    alignItems: "left",
-    textAlign: "left",
+    // alignItems: "left",
+    // textAlign: "left",
     border:"solid 1px lightgray",
-    borderRadius: "30px", 
-    width:"1000px",
+    borderRadius: "20px", 
+    maxWidth:"1000px",
     minHeight: "500px", 
     margin:"20px 50px", 
     background:"white",
@@ -21,10 +27,9 @@ const cardStyle = {
     position: "relative",
 }
 
-function BookDetails({handleClick, handleDelete}) {
+function BookDetails({handleDelete, updateShelf}) {
     const [book, setBook] = useState(null)
     const [isLoaded, setIsLoaded] = useState(false)
-    const [clicked, setClicked] = useState(false)
     const [bookIcon, setBookIcon] = useState(bookAdded)
 
     const id = useParams().id
@@ -35,32 +40,75 @@ function BookDetails({handleClick, handleDelete}) {
             .then(data => {
                 setBook(data)
                 setIsLoaded(true)
-                if (data.bookshelf === true) {
-                    setClicked(true)
-                }
             })
         }, [])
 
+    function handleClick() {
+        fetch(`http://localhost:3000/books/${book.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                bookshelf: !bookshelf,
+            })
+        })
+            .then(resp => resp.json())
+            .then(data => {
+                setBook(data)
+                updateShelf(data)
+            })
+    }
+
     if(!isLoaded) return <h1>Loading</h1>
 
-    const {title, author, genre, img, publishYear, description} = book
+    const {title, author, genre, img, publishYear, description, bookshelf} = book
 
     return (
-        <div>
-            <div class="book-details" style={cardStyle}>
+        <div style={main}>
+            <div className="book-details" style={cardStyle}>
                 <div style={{display:"flex", margin:"10px"}}>
-                <img style={{height: "300px", paddingRight:"20px"}} src={img} alt={title}></img>
-                <div>
-                    <h1>{title}</h1>
-                    <h3>Author: {author}</h3>
-                    <h4>First Published in {publishYear}</h4>
-                    <h4> Genre: {genre}</h4>
+                    <div style={{width:"25%"}}>
+                        <img style={{height: "290px", paddingRight:"20px"}} src={img} alt={title}></img>
+                    </div>
+                    <div style={{width:"25%"}}>
+                        <h1>{title}</h1>
+                        <h3>Author: {author}</h3>
+                        <h4>First Published in {publishYear}</h4>
+                        <h4> Genre: {genre}</h4>
+                    </div>
+                    <div style={{width:"50%", textAlign:"right", paddingRight:"10px"}}>
+                        <p 
+                        className="bookshelfButton"
+                        title={bookshelf ? "Remove from Bookshelf" : "Add to Bookshelf"}
+                        onClick={handleClick}
+                        >
+                            {bookshelf ?
+                                <img
+                                    className="icon"
+                                    src={bookIcon}
+                                    alt="book icon"
+                                    onMouseOver={() => setBookIcon(bookRemove)}
+                                    onMouseOut={() => setBookIcon(bookAdded)}
+                                />
+                                :
+                                <img
+                                    className="icon"
+                                    src={bookAdd}
+                                    alt="book icon"
+                                />
+                            }
+                        </p>
+                    </div>
                 </div>
-                </div>
-                <p className="bookshelfButton" title={clicked ? "Remove from Bookshelf" : "Add to Bookshelf"} onClick={() => {setClicked(!clicked); handleClick(book)}}>{clicked ? <img className="iconDetail" src={bookIcon} onMouseOver={() => setBookIcon(bookRemove)} onMouseOut={() => setBookIcon(bookAdded)} /> : <img className="iconDetail" src={bookAdd} />}</p>
-                <button style={{marginLeft:"10px"}} onClick={() => handleDelete(book)}>Delete from Library</button> 
-                <Link to="/"><button style={{marginLeft:"10px"}}>Return to Library</button></Link>
-                <p style={{margin:"10px"}}>
+
+                <button style={{marginLeft:"10px", marginTop:"20px"}} onClick={() => handleDelete(book)}>
+                    Delete from Library
+                </button> 
+                <Link to="/"><button style={{marginLeft:"10px", marginTop:"20px"}}>Return to Library</button></Link>
+                
+                <h4 style={{marginLeft:"10px"}}>Description</h4>
+                <p style={{margin:"10px", marginTop:"20px"}}>
                 {description}
                 </p>
             </div>

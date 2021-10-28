@@ -15,7 +15,13 @@ const searchBox = {
 function ShelfSearch({search, handleSearch}) {
     return (
         <div style={searchContainer}>
-            <input style={searchBox} type="text" placeholder="Search books by name..." value={search} onChange={handleSearch}></input>
+            <input
+                style={searchBox}
+                type="text"
+                placeholder="Search books by name..."
+                value={search}
+                onChange={handleSearch}
+            ></input>
         </div>
     )
 }

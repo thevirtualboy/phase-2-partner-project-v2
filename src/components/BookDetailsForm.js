@@ -1,10 +1,9 @@
 const cardStyle = {
-    // display: "flex",
     flexDirection: "column",
     alignItems: "left",
     textAlign: "left",
     border:"solid 1px lightgray",
-    borderRadius: "30px", 
+    borderRadius: "20px", 
     maxWidth: "1000px",
     minHeight: "500px", 
     margin:"20px 50px", 
@@ -28,9 +27,9 @@ function BookDetailsForm({book:{title, author, genre, img, publishYear, descript
     
     return (
         <div>
-            <div class="book-details" style={cardStyle}>
+            <div className="book-details" style={cardStyle}>
                 <div style={{display:"flex", margin:"10px"}}>
-                <img style={{height: "300px", paddingRight:"20px"}} src={img} alt={title}></img>
+                <img style={{height: "290px", paddingRight:"20px"}} src={img} alt={title}></img>
                 <div>
                     <h1>{title}</h1>
                     <h3>Author: {author}</h3>
