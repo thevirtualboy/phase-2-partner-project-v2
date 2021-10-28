@@ -35,7 +35,7 @@ function BookCard({handleDelete, handleClick, book, book:{title, author, genre, 
             <p>Author: {author}</p>
             <p>First published in {publishYear}</p>
             <p>Genre: {genre}</p>
-            <Link to={`/book/${book.id}`}><button>Show Details</button></Link>
+            <Link to={`/book/${book.id}`}><button style={{marginBottom: "5px"}}>Show Details</button></Link>
             {/* <button onClick={() => {setButtonText(!buttonText); handleClick(book)}}>{buttonText ? "Remove from Bookshelf" : "Add to Bookshelf "}</button> */}
             <button onClick={() => handleDelete(book)}>Delete from Library</button> 
         </div>
