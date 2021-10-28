@@ -36,3 +36,15 @@ code {
   transition: all .1s ease-in-out;
   transform: scale(0.12);
 }
+
+.iconDetail {
+  position: absolute;
+  transform: scale(0.1);
+  bottom: 250px;
+  right: -220px;
+}
+
+.iconDetail:hover {
+  transition: all .1s ease-in-out;
+  transform: scale(0.12);
+}
