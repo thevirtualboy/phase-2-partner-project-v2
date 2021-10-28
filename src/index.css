@@ -18,7 +18,7 @@ code {
 }
 
 .card:hover {
-  transform: scale(1.05)
+  transform: scale(1.01)
 }
 
 .bookshelfButton:hover {
@@ -26,31 +26,27 @@ code {
 }
 
 .icon {
-  position: absolute;
-  transform: scale(0.1);
-  top: -210px;
-  bottom: 325px;
-  left: 90px;
-  right: -220px;
+  position: relative;
+  width: 45px;
+  height: "auto";
 }
 
 .icon:hover {
   transition: all .1s ease-in-out;
-  transform: scale(0.12);
+  width: 50px;
+  height: "auto";
 }
 
 .iconDetail {
-  position: absolute;
-  transform: scale(0.1);
-  bottom: 250px;
-  right: -220px;
-  top: -210px;
-  left: 735px
+  position: relative;
+  width: 45px;
+  height: "auto";
 }
 
 .iconDetail:hover {
   transition: all .1s ease-in-out;
-  transform: scale(0.12);
+  width: 50px;
+  height: "auto";
 }
 
 #formButton:hover {
