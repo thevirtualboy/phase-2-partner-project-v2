@@ -171,7 +171,7 @@ function App() {
             <AddBook formData={formData} handleFormChange={handleFormChange} handleSubmit={handleSubmit} handleChecked={handleChecked} />
           </Route>
           <Route exact path="/book/:id">
-            <BookDetails myBookshelf={bookshelf} handleClick={handleClick} handleDelete={handleDelete}/>
+            <BookDetails handleClick={handleClick} handleDelete={handleDelete}/>
           </Route>
         </Switch>
       </div>

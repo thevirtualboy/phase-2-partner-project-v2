@@ -22,7 +22,7 @@ const cardStyle = {
 }
 
 
-function BookCard({handleDelete, handleClick, book, book:{title, author, genre, img, publishYear, description, bookshelf}}) {
+function BookCard({handleDelete, handleClick, book, book:{title, author, genre, img, publishYear, bookshelf}}) {
     // const [buttonText , setButtonText] = useState(bookshelf)
     const [clicked, setClicked] = useState(bookshelf)
     const [bookIcon, setBookIcon] = useState(bookAdded)
