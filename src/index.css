@@ -48,3 +48,11 @@ code {
   transition: all .1s ease-in-out;
   transform: scale(0.12);
 }
+
+#formButton:hover {
+  cursor: pointer;
+}
+
+#checkbox:hover {
+  cursor: pointer;
+}

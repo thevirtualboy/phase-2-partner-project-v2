@@ -21,7 +21,6 @@ const h4Style = {
     marginLeft: "80px", 
     marginTop: "10px", 
     marginBottom: "0", 
-    paddingBottom: "18px",
     position: "relative",
     top: "55px",
     width: "300px",
