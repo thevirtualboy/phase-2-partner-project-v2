@@ -46,7 +46,7 @@ function BookDetails({handleClick, handleDelete}) {
     const {title, author, genre, img, publishYear, description} = book
 
     return (
-        <div>
+        <div style>
             <div class="book-details" style={cardStyle}>
                 <div style={{display:"flex", margin:"10px"}}>
                 <img style={{height: "300px", paddingRight:"20px"}} src={img} alt={title}></img>
