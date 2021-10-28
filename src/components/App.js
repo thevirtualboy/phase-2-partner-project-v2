@@ -17,7 +17,7 @@ const pageStyle = {
   boxShadow: "0 -0.5px 5px",
   minHeight: "100vh",
   position: "relative",
-  top: "55px"
+  top: "-40px"
 }
 
 function App() {
