@@ -1,6 +1,6 @@
 import '../App.css';
 import React, {useState, useEffect} from 'react'
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useHistory } from 'react-router-dom';
 import Home from './Home';
 import Bookshelf from './Bookshelf';
 import NavBar from './NavBar';
@@ -38,6 +38,8 @@ function App() {
     publishYear: "",
     bookshelf: false
   })
+
+  const history = useHistory()
 
 // GET data from local db.json
   useEffect(() =>{
@@ -151,6 +153,7 @@ function App() {
         .then(data => console.log(data))
     
     deleteBook(book)
+    history.push('/')
   }
 
   return (

@@ -89,16 +89,6 @@
       "description": "This masterpiece of comics storytelling brings to life a dark world…and an even darker man. Frank Miller completely reinvents the legend of Batman in his saga of a near-future Gotham City gone to rot, ten years after the Dark Knight’s retirement.",
       "publishYear": 1986,
       "bookshelf": false
-    },
-    {
-      "id": 10,
-      "title": "Blood of Elves (The Witcher #1)",
-      "author": "Andrzej Sapkowski",
-      "img": "https://covers.openlibrary.org/b/isbn/0316438987-M.jpg",
-      "genre": "science fiction",
-      "description": "The New York Times bestselling series that inspired the international hit video game: The Witcher. For over a century, humans, dwarves, gnomes, and elves have lived together in relative peace. But times have changed, the uneasy peace is over, and now the races are fighting once again. The only good elf, it seems, is a dead elf. Geralt of Rivia, the cunning assassin known as The Witcher, has been waiting for the birth of a prophesied child. This child has the power to change the world - for good, or for evil. As the threat of war hangs over the land and the child is hunted for her extraordinary powers, it will become Geralt's responsibility to protect them all - and the Witcher never accepts defeat.",
-      "publishYear": "1994",
-      "bookshelf": false
     }
   ]
 }
