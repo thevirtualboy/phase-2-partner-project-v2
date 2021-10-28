@@ -5,7 +5,7 @@ import bookAdded from '../data/bookadded.png';
 import bookRemove from '../data/bookremove.png';
 
 const cardStyle = {
-    // display: "flex",
+    display: "flex",
     flexDirection: "column",
     alignItems: "left",
     textAlign: "left",
@@ -41,28 +41,30 @@ function BookDetails({handleClick, handleDelete}) {
             })
         }, [])
 
-    if(!isLoaded) return <h1>Loading</h1>
+    if(!isLoaded) return <div style={{textAlign: "center"}}><h1>Loading...</h1></div>
 
     const {title, author, genre, img, publishYear, description} = book
 
     return (
-        <div>
+        <div style={{display: "flex", justifyContent: "center"}}>
             <div class="book-details" style={cardStyle}>
-                <div style={{display:"flex", margin:"10px"}}>
-                <img style={{height: "300px", paddingRight:"20px"}} src={img} alt={title}></img>
-                <div>
-                    <h1>{title}</h1>
-                    <h3>Author: {author}</h3>
-                    <h4>First Published in {publishYear}</h4>
-                    <h4> Genre: {genre}</h4>
-                </div>
+                <div style={{display:"flex", margin:"10px 0 10px 10px"}}>
+                    <img style={{height: "300px", paddingRight:"20px"}} src={img} alt={title}></img>
+                    <div>
+                        <h1>{title}</h1>
+                        <h3>Author: {author}</h3>
+                        <h4>First Published in {publishYear}</h4>
+                        <h4> Genre: {genre}</h4>
+                    </div>
                 </div>
                 <p className="bookshelfButton" title={clicked ? "Remove from Bookshelf" : "Add to Bookshelf"} onClick={() => {setClicked(!clicked); handleClick(book)}}>{clicked ? <img className="iconDetail" src={bookIcon} onMouseOver={() => setBookIcon(bookRemove)} onMouseOut={() => setBookIcon(bookAdded)} /> : <img className="iconDetail" src={bookAdd} />}</p>
-                <button style={{marginLeft:"10px"}} onClick={() => handleDelete(book)}>Delete from Library</button> 
-                <Link to="/"><button style={{marginLeft:"10px"}}>Return to Library</button></Link>
-                <p style={{margin:"10px"}}>
+                <p style={{margin:"0 10px 20px 10px"}}>
                 {description}
                 </p>
+                <span>
+                <button style={{marginLeft:"10px"}} onClick={() => handleDelete(book)}>Delete from Library</button> 
+                <Link to="/"><button style={{marginLeft:"10px"}}>Return to Library</button></Link>
+                </span>
             </div>
         </div>
 
