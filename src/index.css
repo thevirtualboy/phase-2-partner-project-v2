@@ -28,7 +28,9 @@ code {
 .icon {
   position: absolute;
   transform: scale(0.1);
+  top: -210px;
   bottom: 325px;
+  left: 90px;
   right: -220px;
 }
 
@@ -42,6 +44,8 @@ code {
   transform: scale(0.1);
   bottom: 250px;
   right: -220px;
+  top: -210px;
+  left: 735px
 }
 
 .iconDetail:hover {
