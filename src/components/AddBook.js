@@ -5,7 +5,6 @@ const formStyle = {
     flexDirection: "column",
     rowGap: "15px",
     maxWidth: "500px",
-    marginLeft: "90px",
     background: "#b59d89",
     padding: "50px",
     border: "none",
