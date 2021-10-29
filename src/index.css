@@ -43,9 +43,9 @@ code {
   position: absolute;
   transform: scale(0.1);
   bottom: 250px;
-  right: -220px;
+  right: -210px;
   top: -210px;
-  left: 735px
+  left: auto
 }
 
 .iconDetail:hover {
