@@ -44,7 +44,7 @@ function App() {
 
 // GET data from local db.json
   useEffect(() =>{
-    fetch('http://localhost:3000/books')
+    fetch('https://api.jsonbin.io/b/617c11ac4a82881d6c674fd6/books')
       .then(resp => resp.json())
       .then(data => {
         setAllBooks(data)
@@ -68,7 +68,7 @@ function App() {
     if (formData.img === "") {
       formData.img = "http://lgimages.s3.amazonaws.com/nc-md.gif"
     }
-    fetch('http://localhost:3000/books', {
+    fetch('https://api.jsonbin.io/b/617c11ac4a82881d6c674fd6/books', {
       method: "POST",
       headers: {
         "Content-Type" : "application/json"
@@ -105,7 +105,7 @@ function App() {
   }
 
   function handleClick(book) {
-    fetch(`http://localhost:3000/books/${book.id}`, {
+    fetch(`https://api.jsonbin.io/b/617c11ac4a82881d6c674fd6/books/${book.id}`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json",
@@ -144,7 +144,7 @@ function App() {
   }
   
   function handleDelete(book) {
-    fetch(`http://localhost:3000/books/${book.id}`, {
+    fetch(`https://api.jsonbin.io/b/617c11ac4a82881d6c674fd6/books/${book.id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
