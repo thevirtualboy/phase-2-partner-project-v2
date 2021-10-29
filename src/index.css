@@ -29,7 +29,7 @@ code {
   position: absolute;
   transform: scale(0.1);
   top: -210px;
-  bottom: 325px;
+  bottom: auto;
   left: auto;
   right: -220px;
 }
