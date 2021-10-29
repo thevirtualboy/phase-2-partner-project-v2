@@ -34,7 +34,7 @@ function BookDetails({handleClick, handleDelete}) {
     const id = useParams().id
 
     useEffect(() => {
-        fetch(`https://api.jsonbin.io/b/617c11ac4a82881d6c674fd6/books/${id}`)
+        fetch(`https://book-nook-pf.herokuapp.com//books/${id}`)
             .then(resp => resp.json())
             .then(data => {
                 setBook(data)
