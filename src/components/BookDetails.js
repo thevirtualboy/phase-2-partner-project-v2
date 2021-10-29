@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import { useParams, Link } from 'react-router-dom'
-import bookAdd from './bookadd.png';
-import bookAdded from './bookadded.png';
-import bookRemove from './bookremove.png';
+import bookAdd from './data/bookadd.png';
+import bookAdded from './data/bookadded.png';
+import bookRemove from './data/bookremove.png';
 
 const main = {
     display:"flex",
