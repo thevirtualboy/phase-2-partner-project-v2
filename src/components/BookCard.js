@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import bookAdd from './data/bookadd.png';
-import bookAdded from './data/bookadded.png';
-import bookRemove from './data/bookremove.png';
+import bookAdd from '../data/bookadd.png';
+import bookAdded from '../data/bookadded.png';
+import bookRemove from '../data/bookremove.png';
 import { Link } from "react-router-dom";
 
 const cardStyle = {
