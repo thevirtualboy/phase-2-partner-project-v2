@@ -38,13 +38,15 @@ const buttonStyle = {
 const containerStyle = {
     display: "flex",
     justifyContent: "space-around",
+    alignContent: "center",
     flexWrap: "wrap",
     maxWidth: "1750px",
     margin: "auto",
     paddingTop: "100px"
 }
 
-const formLabelStyle = { 
+const formLabelStyle = {
+    marginLeft: "60px", 
     marginBottom: "0px",
     textAlign: "center",
     fontVariant: "small-caps",
