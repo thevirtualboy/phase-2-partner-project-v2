@@ -2,11 +2,11 @@ import { NavLink } from "react-router-dom";
 
 const navBar = {
     display: "flex", 
-    justifyContent: "center", 
+    justifyContent: "space-between", 
     position: "relative", 
     maxWidth: "1000px", 
     margin: "auto", 
-    gap: "200px"
+    gap: "auto"
 }
 
 const linkStyles = {

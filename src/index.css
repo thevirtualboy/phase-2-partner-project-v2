@@ -18,7 +18,7 @@ code {
 }
 
 .card:hover {
-  transform: scale(1.05)
+  transform: scale(1.01)
 }
 
 .bookshelfButton:hover {
@@ -30,7 +30,7 @@ code {
   transform: scale(0.1);
   top: -210px;
   bottom: 325px;
-  left: 90px;
+  left: auto;
   right: -220px;
 }
 

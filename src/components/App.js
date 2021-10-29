@@ -1,6 +1,7 @@
 import '../App.css';
 import React, {useState, useEffect} from 'react'
 import { Route, Switch } from 'react-router-dom';
+
 import Home from './Home';
 import Bookshelf from './Bookshelf';
 import NavBar from './NavBar';
@@ -9,6 +10,8 @@ import Header from './Header';
 import Search from './Search';
 import ShelfSearch from './ShelfSearch';
 import BookDetails from './BookDetails';
+
+import ScrollToTop from './ScrollToTop';
 
 const pageStyle = {
   backgroundColor: "#f3eeda",
@@ -158,6 +161,7 @@ function App() {
       <Header />
       <div style={pageStyle}>
         <NavBar />
+        <ScrollToTop />
         <Switch>
           <Route exact path="/">
             <Search search={search} handleSearch={handleSearch} />

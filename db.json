@@ -99,6 +99,16 @@
       "description": "The New York Times bestselling series that inspired the international hit video game: The Witcher. For over a century, humans, dwarves, gnomes, and elves have lived together in relative peace. But times have changed, the uneasy peace is over, and now the races are fighting once again. The only good elf, it seems, is a dead elf. Geralt of Rivia, the cunning assassin known as The Witcher, has been waiting for the birth of a prophesied child. This child has the power to change the world - for good, or for evil. As the threat of war hangs over the land and the child is hunted for her extraordinary powers, it will become Geralt's responsibility to protect them all - and the Witcher never accepts defeat.",
       "publishYear": "1994",
       "bookshelf": false
+    },
+    {
+      "id": 11,
+      "title": "1984",
+      "author": "George Orwell",
+      "img": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1348990566l/5470.jpg",
+      "genre": "dystopian fiction",
+      "description": "The year 1984 has come and gone, but George Orwell's prophetic, nightmarish vision in 1949 of the world we were becoming is timelier than ever. 1984 is still the great modern classic of \\\"negative utopia\\\"—a startlingly original and haunting novel that creates an imaginary world that is completely convincing, from the first sentence to the last four words. No one can deny the novel's hold on the imaginations of whole generations, or the power of its admonitions—a power that seems to grow, not lessen, with the passage of time.",
+      "publishYear": "1950",
+      "bookshelf": true
     }
   ]
 }
