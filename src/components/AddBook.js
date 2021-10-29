@@ -38,6 +38,7 @@ const buttonStyle = {
 const containerStyle = {
     display: "flex",
     justifyContent: "space-around",
+    flexWrap: "wrap",
     maxWidth: "1750px",
     margin: "auto",
     paddingTop: "100px"
