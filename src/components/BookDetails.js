@@ -4,14 +4,18 @@ import bookAdd from '../data/bookadd.png';
 import bookAdded from '../data/bookadded.png';
 import bookRemove from '../data/bookremove.png';
 
+const main = {
+    display:"flex",
+    flexWrap:"wrap",
+    marginTop:"20px",
+    justifyContent:"space-around",
+}
+
 const cardStyle = {
-    display: "flex",
     flexDirection: "column",
-    alignItems: "left",
-    textAlign: "left",
     border:"solid 1px lightgray",
-    borderRadius: "30px", 
-    width:"1000px",
+    borderRadius: "20px", 
+    maxWidth:"1000px",
     minHeight: "500px", 
     margin:"20px 50px", 
     background:"white",
@@ -46,24 +50,49 @@ function BookDetails({handleClick, handleDelete}) {
     const {title, author, genre, img, publishYear, description} = book
 
     return (
-        <div style={{display: "flex", justifyContent: "center"}}>
+        <div style={main}>
             <div class="book-details" style={cardStyle}>
-                <div style={{display:"flex", margin:"10px 0 10px 10px"}}>
-                    <img style={{height: "300px", paddingRight:"20px"}} src={img} alt={title}></img>
-                    <div>
+                <div style={{display:"flex", margin:"10px"}}>
+                    <div style={{width:"25%"}}>
+                        <img style={{height: "300px", paddingRight:"20px"}} src={img} alt={title}></img>
+                    </div>
+                    <div style={{width:"50%", marginLeft: "100px", marginTop: "35px"}}>
                         <h1>{title}</h1>
                         <h3>Author: {author}</h3>
                         <h4>First Published in {publishYear}</h4>
                         <h4> Genre: {genre}</h4>
                     </div>
+                    <div style={{width:"25%", textAlign:"right", paddingRight:"10px"}}>
+                        <p
+                            className="bookshelfButton"
+                            title={clicked ? "Remove from Bookshelf" : "Add to Bookshelf"}
+                            onClick={() => {setClicked(!clicked); handleClick(book)}}
+                        >
+                            {clicked ?
+                                <img
+                                    className="iconDetail"
+                                    src={bookIcon}
+                                    alt="book icon"
+                                    onMouseOver={() => setBookIcon(bookRemove)}
+                                    onMouseOut={() => setBookIcon(bookAdded)}
+                                />
+                                :
+                                <img
+                                    className="iconDetail"
+                                    src={bookAdd} 
+                                    alt="book icon"
+                                />
+                            }
+                        </p>
+                    </div>
                 </div>
-                <p className="bookshelfButton" title={clicked ? "Remove from Bookshelf" : "Add to Bookshelf"} onClick={() => {setClicked(!clicked); handleClick(book)}}>{clicked ? <img className="iconDetail" src={bookIcon} onMouseOver={() => setBookIcon(bookRemove)} onMouseOut={() => setBookIcon(bookAdded)} /> : <img className="iconDetail" src={bookAdd} />}</p>
+                <h4 style={{marginLeft:"10px"}}>Description</h4>
                 <p style={{margin:"0 10px 20px 10px"}}>
-                {description}
+                    {description}
                 </p>
                 <span>
-                <button style={{marginLeft:"10px"}} onClick={() => handleDelete(book)}>Delete from Library</button> 
-                <Link to="/"><button style={{marginLeft:"10px"}}>Return to Library</button></Link>
+                    <button style={{marginLeft:"10px"}} onClick={() => handleDelete(book)}>Delete from Library</button> 
+                    <Link to="/"><button style={{marginLeft:"10px"}}>Return to Library</button></Link>
                 </span>
             </div>
         </div>

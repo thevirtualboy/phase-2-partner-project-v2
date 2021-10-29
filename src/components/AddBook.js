@@ -13,7 +13,7 @@ const formStyle = {
 }
 
 const inputStyle = {
-    width: "250px",
+    maxWidth: "250px",
     border: "none",
     borderRadius: "5px",
     padding: "3px"
