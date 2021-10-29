@@ -5,6 +5,7 @@ const formStyle = {
     flexDirection: "column",
     rowGap: "15px",
     maxWidth: "500px",
+    marginLeft: "90px",
     background: "#b59d89",
     padding: "50px",
     border: "none",
@@ -43,8 +44,7 @@ const containerStyle = {
     paddingTop: "100px"
 }
 
-const formLabelStyle = {
-    marginLeft: "60px", 
+const formLabelStyle = { 
     marginBottom: "0px",
     textAlign: "center",
     fontVariant: "small-caps",
