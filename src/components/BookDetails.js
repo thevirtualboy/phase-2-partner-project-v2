@@ -43,7 +43,7 @@ function BookDetails({handleClick, handleDelete}) {
                     setClicked(true)
                 }
             })
-        }, [])
+        }, [id])
 
     if(!isLoaded) return <div style={{textAlign: "center"}}><h1>Loading...</h1></div>
 
